@@ -24,12 +24,16 @@ namespace Common
                 }
         }
 
+        public Canvas BossCanvas;
         private void Awake ()
+
         {
             DontDestroyOnLoad(this);
             if ( g == null )
             {
                 g = gameObject;
+                BossCanvas = GetComponentInChildren<Canvas>();
+                BossCanvas.transform.SetAsFirstSibling();
             }       
         }
 
