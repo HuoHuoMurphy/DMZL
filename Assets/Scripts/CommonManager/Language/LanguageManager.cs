@@ -99,6 +99,28 @@ namespace Common
         }
 
         /// <summary>
+        /// 清空Text字典
+        /// </summary>
+        /// <param name="text"></param>
+        public void ClearTextDic ()
+        {
+            TextDic.Clear();
+        }
+        /// <summary>
+        /// 移除注册的Text
+        /// </summary>
+        public void RemoveText (Text text)
+        {
+            foreach ( string Space in TextDic.Keys )
+            {
+                foreach ( string Key in TextDic[Space].Keys )
+                {
+                    if ( TextDic[Space][Key].Contains(text) ) TextDic[Space][Key].Remove(text);
+                    break;
+                }
+            }
+        }
+        /// <summary>
         /// 返回数据库对应tag的文字内容
         /// </summary>
         /// <param name="Table">表</param>
